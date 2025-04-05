@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tourism Guide</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homeStyle.css"> 
+
+    <script>
+        async function searchInterest(){
+            
+            const apiKey = "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";  // Replace with your OpenAI API key
+            const userInput = document.getElementById("interest").value;
+            
+                const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: userInput }],
+                    max_tokens: 150
+                })
+            });
+            
+            const data = await response.json();
+            
+            document.getElementById("response").innerText = data.choices[0].message.content;
+            }   
+            
+        
+        
+    </script>
+    
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+            <img src="https://s7ap1.scene7.com/is/content/incredibleindia/incredible-india-logo?qlt=82&ts=1727762218512" width="200px">
+            </div>
+            <div class="texts"><a href="#hbvfhb"style="text-decoration:none;color:inherit"><p>Home</p></a></a></div>
+            <div class="texts"><a href="bjhbvfueygb" style="text-decoration: none;color: inherit;"><p>Destination</p></a></div>
+            <div class="texts"><a href="https://www.blackbox.ai/"style="text-decoration:none;color:inherit;text-align:center"><p>AI Guide</p></a></div>
+            <div class="texts"><a href="#jkbef" style="text-decoration: none;color: inherit;"><p>Contact</p></a></div>
+            <div id="icon">
+                <div  class="icons"><a href="search.html" style="text-decoration: none; color: inherit;"><i class="ri-search-line"></i></a></div> <!-- search icon -->
+                <div class="icons"><a href="signup.html" style="text-decoration: none;color: inherit;"><i class="ri-user-fill"></i></a></div>  <!-- login icon -->
+                <div class="icons"><a href="#njvhbjhdbvuyhbvhdb" style="text-decoration: none; color: inherit;"><i class="ri-menu-line"></i></a></i></div>  <!-- menu icons -->
+            </div>
+            
+            
+            
+            
+            
+        </div>  
+        <div id="fakeheader"></div>  
+        <div id="page1">
+    <section id="home">
+        <h2>Explore the World with Us!</h2>
+        <p>Discover the best travel destinations, tips, and AI-based recommendations.</p>
+    </section>
+    
+    <section id="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination">
+            <img src="https://www.travelandleisure.com/thmb/SPUPzO88ZXq6P4Sm4mC5Xuinoik=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/eiffel-tower-paris-france-EIFFEL0217-6ccc3553e98946f18c893018d5b42bde.jpg" alt="Eiffel Tower">
+            <h3>Paris, France</h3>
+            <p>Explore the city of love with its iconic Eiffel Tower.</p>
+        </div>
+        <div class="destination">
+            <img src="https://lp-cms-production.imgix.net/2023-01/GettyImages-827446284.jpg?w=1095&fit=crop&crop=faces%2Cedges&auto=format&q=75" alt="Bali Beach">
+            <h3>Bali, Indonesia</h3>
+            <p>Experience the tropical paradise and vibrant culture of Bali.</p>
+        </div>
+        
+    </section>
+    
+    <section id="ai-recommendation">
+        <h2>AI Travel Guide</h2>
+        <p>Enter your preferences and let AI suggest the best travel destinations for you!</p>
+        <input type="text" id="interest" placeholder="Enter your interests (beach, mountains, history)...">
+        <button onclick="searchInterest()" >Get Recommendations</button>
+        <p><strong>Response:</strong> <span id="response"></span></p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us!</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Tourism Guide. All rights reserved.</p>
+    </footer>
+        </div>
+
+       
+    </div>
+</body>
+</html>
